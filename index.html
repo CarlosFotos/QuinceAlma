@@ -2,14 +2,22 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alma XV | Fotografía Profesional</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Alma XV | Cristal Foto y Video</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales */
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        
         :root {
             --rosa: #e91e63;
             --rosa-oscuro: #c2185b;
@@ -21,18 +29,16 @@
             --blanco: #ffffff;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
             font-family: 'Poppins', sans-serif;
             background-color: var(--claro);
             color: var(--oscuro);
             line-height: 1.6;
             text-align: center;
+            position: relative;
         }
         
         h1, h2, h3, h4 {
@@ -42,33 +48,35 @@
         
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 0 16px;
+            padding: 0 20px;
         }
         
-        /* Header */
+        /* Header fijo */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: var(--blanco);
             z-index: 1000;
-            padding: 12px 0;
+            padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid var(--rosa-claro);
         }
         
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
         
         .logo h1 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: var(--oscuro);
+            white-space: nowrap;
         }
         
         .boton-compartir {
@@ -85,18 +93,15 @@
             justify-content: center;
         }
         
-        .boton-compartir:hover {
-            background-color: rgba(233, 30, 99, 0.1);
-        }
-        
         /* Hero con imagen de fondo */
         .hero {
             margin-top: 70px;
-            height: 60vh;
-            min-height: 400px;
+            height: 50vh;
+            min-height: 300px;
             background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('images/1.jpg');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -105,102 +110,74 @@
         }
         
         .hero-content {
-            max-width: 400px;
+            max-width: 100%;
+            width: 100%;
         }
         
         .hero h2 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .fotografo {
             color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin-bottom: 25px;
         }
         
         /* Sección próximamente */
         .proximamente-section {
-            padding: 60px 0;
+            padding: 40px 20px;
             background-color: var(--blanco);
         }
         
         .proximamente-section h3 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             color: var(--rosa);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .proximamente-section p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gris);
         }
         
         /* Galería */
         .galeria {
-            padding: 50px 0;
+            padding: 40px 20px;
         }
         
         .galeria h3 {
-            margin-bottom: 10px;
-            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-size: 2rem;
             color: var(--oscuro);
-        }
-        
-        .galeria > p {
-            color: var(--gris);
-            margin-bottom: 30px;
-            font-size: 1.1rem;
         }
         
         .grid-galeria {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .item-galeria {
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%; /* Cuadrado perfecto */
             position: relative;
             border-radius: 10px;
             overflow: hidden;
-            aspect-ratio: 1;
-            cursor: pointer;
+            background-color: #f0f0f0;
         }
         
         .item-galeria img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .item-galeria:hover img {
-            transform: scale(1.05);
-        }
-        
-        .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .item-galeria:hover .overlay {
-            opacity: 1;
-        }
-        
-        .overlay i {
-            color: white;
-            font-size: 1.5rem;
+            object-fit: cover;
         }
         
         .btn-dorado {
@@ -208,39 +185,36 @@
             background: linear-gradient(135deg, #D4AF37 0%, #F5E050 100%);
             color: var(--oscuro);
             font-weight: 700;
-            padding: 16px 30px;
+            padding: 15px 25px;
             border-radius: 12px;
             text-decoration: none;
-            font-size: 1.1rem;
-            margin-top: 20px;
-            transition: transform 0.3s ease;
-        }
-        
-        .btn-dorado:hover {
-            transform: translateY(-3px);
+            font-size: 1rem;
+            margin-top: 10px;
         }
         
         /* Eventos próximos */
         .eventos {
-            padding: 50px 0;
+            padding: 40px 20px;
             background-color: var(--claro);
         }
         
         .eventos h3 {
             margin-bottom: 10px;
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
         
         .eventos-subtitulo {
             color: var(--rosa);
             font-weight: 600;
             margin-bottom: 30px;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            padding: 0 10px;
         }
         
         .grid-eventos {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
             gap: 15px;
             max-width: 400px;
             margin: 0 auto;
@@ -249,72 +223,97 @@
         .card-evento {
             background-color: var(--blanco);
             border-radius: 12px;
-            padding: 25px 15px;
+            padding: 20px 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .icono-evento {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--rosa);
             margin-bottom: 15px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .card-evento h4 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             margin-bottom: 8px;
+            text-align: center;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .card-evento p {
             font-size: 0.9rem;
             color: var(--gris);
             margin-bottom: 15px;
+            text-align: center;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .badge-pequeño {
             display: inline-block;
             background-color: var(--rosa-claro);
             color: var(--rosa-oscuro);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
             font-weight: 700;
+            text-align: center;
         }
         
         /* Fotógrafos */
         .fotografos-info {
-            padding: 60px 0;
+            padding: 40px 20px;
             background-color: var(--blanco);
         }
         
         .fotografos-titulo {
-            margin-bottom: 40px;
-            font-size: 2rem;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
             color: var(--oscuro);
         }
         
         .fotografos-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            max-width: 400px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+            max-width: 500px;
             margin: 0 auto;
+            flex-wrap: wrap;
         }
         
         .card-fotografo {
             background-color: var(--claro);
             border-radius: 16px;
-            padding: 30px 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 25px 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 10px);
+            min-width: 160px;
+            max-width: 200px;
         }
         
         .foto-fotografo {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             overflow: hidden;
-            margin: 0 auto 25px;
-            border: 5px solid var(--blanco);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            margin: 0 auto 15px;
+            border: 4px solid var(--blanco);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .foto-fotografo img {
@@ -324,46 +323,44 @@
         }
         
         .card-fotografo h4 {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
         }
         
         .titulo {
             color: var(--rosa);
             font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
         }
         
         .descripcion {
             color: var(--gris);
-            margin-top: 20px;
-            line-height: 1.8;
+            line-height: 1.5;
+            font-size: 0.85rem;
         }
         
         .descripcion p {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         /* CTA contacto */
         .cta-contacto {
-            padding: 60px 0;
+            padding: 40px 20px;
             background-color: var(--claro);
         }
         
         .cta-contacto h4 {
-            font-size: 2rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
             color: var(--oscuro);
         }
         
         .cta-contacto p {
             color: var(--gris);
-            margin-bottom: 30px;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 1.2rem;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            padding: 0 10px;
         }
         
         .redes-contacto {
@@ -379,12 +376,11 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 18px 25px;
+            padding: 16px 20px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+            font-size: 1rem;
         }
         
         .btn-whatsapp {
@@ -397,23 +393,18 @@
             color: white;
         }
         
-        .btn-contacto:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-        
         /* Footer */
         footer {
             background-color: var(--oscuro);
             color: var(--blanco);
-            padding: 30px 0 20px;
+            padding: 25px 20px 20px;
         }
         
         .copyright {
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         
         /* Modal */
@@ -428,13 +419,14 @@
             z-index: 2000;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
         
         .modal-contenido {
             background-color: var(--blanco);
             border-radius: 16px;
-            width: 90%;
-            max-width: 400px;
+            width: 100%;
+            max-width: 350px;
             padding: 20px;
         }
         
@@ -447,6 +439,7 @@
         
         .modal-cabecera h4 {
             margin: 0;
+            font-size: 1.2rem;
         }
         
         .cerrar-modal {
@@ -464,7 +457,7 @@
         .opciones-compartir {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             margin-top: 20px;
         }
         
@@ -473,20 +466,46 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 15px;
+            padding: 14px;
             border-radius: 12px;
             border: none;
             background-color: var(--claro);
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            font-size: 0.9rem;
         }
         
-        .opcion-compartir:hover {
-            background-color: #e0e0e0;
+        /* Ajustes para móviles pequeños */
+        @media (max-width: 360px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .proximamente-section h3 {
+                font-size: 2rem;
+            }
+            
+            .grid-eventos {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .card-evento {
+                width: 100%;
+            }
+            
+            .fotografos-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .card-fotografo {
+                width: 100%;
+                max-width: 250px;
+            }
         }
         
-        /* Responsive */
+        /* Ajustes para tablets */
         @media (min-width: 768px) {
             .container {
                 max-width: 700px;
@@ -496,40 +515,37 @@
                 grid-template-columns: repeat(3, 1fr);
             }
             
-            .fotografos-grid {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 700px;
-                gap: 50px;
-            }
-            
             .redes-contacto {
                 flex-direction: row;
-                max-width: 500px;
+                max-width: 400px;
             }
             
             .hero h2 {
-                font-size: 4rem;
+                font-size: 3rem;
             }
             
             .proximamente-section h3 {
-                font-size: 4.5rem;
+                font-size: 3rem;
             }
+        }
+        
+        /* Prevenir zoom en iOS */
+        input, select, textarea {
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>Cristal Foto y Video</h1>
-                </div>
-                
-                <button class="boton-compartir" id="compartirBtn">
-                    <i class="fas fa-share-alt"></i>
-                </button>
+        <div class="header-content">
+            <div class="logo">
+                <h1>Cristal Foto y Video</h1>
             </div>
+            
+            <button class="boton-compartir" id="compartirBtn">
+                <i class="fas fa-share-alt"></i>
+            </button>
         </div>
     </header>
 
@@ -755,7 +771,7 @@
             
             if (!gridGaleria) return;
             
-            // Número de imágenes en la carpeta (ajusta según tus necesidades)
+            // Número de imágenes en la carpeta
             const totalImagenes = 6;
             
             for (let i = 4; i <= totalImagenes + 3; i++) {
@@ -767,29 +783,15 @@
                 img.src = `images/${i}.jpg`;
                 img.alt = `Alma fotografía ${i-3}`;
                 
-                // Si la imagen no existe, muestra un mensaje
+                // Si la imagen no existe, muestra un placeholder
                 img.onerror = function() {
-                    // Crear un div con número si la imagen no existe
-                    this.style.display = 'none';
-                    const numeroDiv = document.createElement('div');
-                    numeroDiv.style.width = '100%';
-                    numeroDiv.style.height = '100%';
-                    numeroDiv.style.backgroundColor = '#f0f0f0';
-                    numeroDiv.style.display = 'flex';
-                    numeroDiv.style.alignItems = 'center';
-                    numeroDiv.style.justifyContent = 'center';
-                    numeroDiv.style.fontSize = '2rem';
-                    numeroDiv.style.color = '#ccc';
-                    numeroDiv.textContent = i-3;
-                    itemGaleria.appendChild(numeroDiv);
+                    this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjBGMEYwIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiNDQ0NDQ0MiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIwLjNlbSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSI+PGRpdj57eyBpLTMgfX08L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC90ZXh0Pgo8L3N2Zz4=';
+                    this.style.objectFit = 'contain';
+                    this.style.padding = '20px';
+                    this.style.backgroundColor = '#f0f0f0';
                 };
                 
-                const overlay = document.createElement('div');
-                overlay.className = 'overlay';
-                overlay.innerHTML = '<i class="fas fa-search-plus"></i>';
-                
                 itemGaleria.appendChild(img);
-                itemGaleria.appendChild(overlay);
                 gridGaleria.appendChild(itemGaleria);
                 
                 // Añadir evento para abrir la imagen en grande
@@ -800,6 +802,20 @@
                 });
             }
         }
+        
+        // Prevenir zoom con doble toque en iOS
+        document.addEventListener('touchmove', function (event) {
+            if (event.scale !== 1) { event.preventDefault(); }
+        }, { passive: false });
+        
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
     </script>
 </body>
 </html>
