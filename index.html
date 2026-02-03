@@ -25,6 +25,7 @@
             --claro: #f8f6f7;
             --gris: #666;
             --blanco: #ffffff;
+            --azul-video: #2c3e50;
         }
         
         html, body {
@@ -36,7 +37,7 @@
             line-height: 1.6;
             text-align: center;
             position: relative;
-            -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+            -webkit-overflow-scrolling: touch;
         }
         
         h1, h2, h3, h4 {
@@ -51,7 +52,6 @@
             padding: 0 20px;
         }
         
-        /* Header fijo */
         header {
             position: fixed;
             top: 0;
@@ -91,13 +91,11 @@
             justify-content: center;
         }
         
-        /* Hero con imagen de fondo */
         .hero {
             margin-top: 70px;
             height: 50vh;
             min-height: 300px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('images/1.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -125,7 +123,6 @@
             margin-bottom: 25px;
         }
         
-        /* Sección próximamente */
         .proximamente-section {
             padding: 40px 20px;
             background-color: var(--blanco);
@@ -142,7 +139,6 @@
             color: var(--gris);
         }
         
-        /* Galería */
         .galeria {
             padding: 40px 20px;
         }
@@ -163,15 +159,11 @@
         .item-galeria {
             width: 100%;
             height: 0;
-            padding-bottom: 100%; /* Cuadrado perfecto */
+            padding-bottom: 100%;
             position: relative;
             border-radius: 10px;
             overflow: hidden;
             background-color: #f0f0f0;
-            background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0),
-                              linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
         }
         
         .item-galeria img {
@@ -181,32 +173,41 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
         }
         
-        .item-galeria:hover img {
-            transform: scale(1.05);
-        }
-        
-        .btn-dorado {
-            display: inline-block;
-            background: linear-gradient(135deg, #D4AF37 0%, #F5E050 100%);
-            color: var(--oscuro);
-            font-weight: 700;
-            padding: 15px 25px;
+        /* Estilos de botones */
+        .btn-accion {
+            display: block;
+            width: 100%;
+            max-width: 320px;
+            margin: 12px auto;
+            padding: 16px 20px;
             border-radius: 12px;
             text-decoration: none;
-            font-size: 1rem;
-            margin-top: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-accion:active {
+            transform: scale(0.98);
+        }
+
+        .btn-video {
+            background: var(--azul-video);
+            color: white;
+        }
+
+        .btn-rosa {
+            background: var(--rosa);
+            color: white;
+        }
+
+        .btn-dorado {
+            background: linear-gradient(135deg, #D4AF37 0%, #F5E050 100%);
+            color: var(--oscuro);
         }
         
-        .btn-dorado:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-        }
-        
-        /* Eventos próximos */
         .eventos {
             padding: 40px 20px;
             background-color: var(--claro);
@@ -244,14 +245,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .card-evento:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
         
         .icono-evento {
@@ -296,7 +289,6 @@
             text-align: center;
         }
         
-        /* Fotógrafos */
         .fotografos-info {
             padding: 40px 20px;
             background-color: var(--blanco);
@@ -336,11 +328,6 @@
             margin: 0 auto 15px;
             border: 4px solid var(--blanco);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gris);
         }
         
         .foto-fotografo img {
@@ -371,7 +358,6 @@
             margin-bottom: 8px;
         }
         
-        /* CTA contacto */
         .cta-contacto {
             padding: 40px 20px;
             background-color: var(--claro);
@@ -408,12 +394,6 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .btn-contacto:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         .btn-whatsapp {
@@ -426,7 +406,6 @@
             color: white;
         }
         
-        /* Footer */
         footer {
             background-color: var(--oscuro);
             color: var(--blanco);
@@ -440,7 +419,6 @@
             font-size: 0.8rem;
         }
         
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -508,116 +486,36 @@
             font-size: 0.9rem;
         }
         
-        /* Nota del video */
-        .nota-video {
-            margin-top: 25px;
-            padding: 15px;
-            background-color: #FFF3CD;
-            border-radius: 10px;
-            border-left: 4px solid #FF9800;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: left;
-        }
-        
-        .nota-video p {
-            margin-bottom: 8px;
-        }
-        
-        .nota-titulo {
-            color: #856404;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-        
-        .nota-texto {
-            color: #856404;
-            font-size: 0.85rem;
-        }
-        
-        /* Placeholder para imágenes */
-        .placeholder-img {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #f8bbd9, #f8f6f7);
-            color: var(--rosa-oscuro);
-        }
-        
-        /* Ajustes para móviles pequeños */
         @media (max-width: 360px) {
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .proximamente-section h3 {
-                font-size: 2rem;
-            }
-            
-            .grid-eventos {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .card-evento {
-                width: 100%;
-            }
-            
-            .fotografos-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .card-fotografo {
-                width: 100%;
-                max-width: 250px;
-            }
+            .hero h2 { font-size: 2rem; }
+            .proximamente-section h3 { font-size: 2rem; }
+            .grid-eventos { flex-direction: column; gap: 20px; }
+            .card-evento { width: 100%; }
+            .fotografos-grid { flex-direction: column; align-items: center; }
+            .card-fotografo { width: 100%; max-width: 250px; }
         }
         
-        /* Ajustes para tablets */
         @media (min-width: 768px) {
-            .container {
-                max-width: 700px;
-            }
-            
-            .grid-galeria {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .redes-contacto {
-                flex-direction: row;
-                max-width: 400px;
-            }
-            
-            .hero h2 {
-                font-size: 3rem;
-            }
-            
-            .proximamente-section h3 {
-                font-size: 3rem;
-            }
+            .container { max-width: 700px; }
+            .grid-galeria { grid-template-columns: repeat(3, 1fr); }
+            .redes-contacto { flex-direction: row; max-width: 400px; }
+            .hero h2 { font-size: 3rem; }
+            .proximamente-section h3 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="header-content">
             <div class="logo">
                 <h1>Cristal Foto y Video</h1>
             </div>
-            
             <button class="boton-compartir" id="compartirBtn">
                 <i class="fas fa-share-alt"></i>
             </button>
         </div>
     </header>
 
-    <!-- Hero con imagen de fondo -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -627,7 +525,6 @@
         </div>
     </section>
 
-    <!-- Sección Próximamente -->
     <section class="proximamente-section">
         <div class="container">
             <h3>PRÓXIMAMENTE</h3>
@@ -635,101 +532,63 @@
         </div>
     </section>
 
-    <!-- Galería -->
     <section class="galeria" id="galeria">
         <div class="container">
-            <h3>BOOKS DE FOTOS</h3>
+            <h3>Books de fotos</h3>
+            <div class="grid-galeria" id="gridGaleria"></div>
             
-            <div class="grid-galeria" id="gridGaleria">
-                <!-- Las imágenes se cargarán con JavaScript -->
-            </div>
-            
-            <a href="https://photos.app.goo.gl/S11tWwn5KtiSa9u78" target="_blank" class="btn-dorado">
-                <i class="fas fa-external-link-alt"></i> Ver todas las fotos en Google Fotos
+            <a href="https://drive.google.com/file/d/1IRfAADmr_Gv4T381_Zg3W4iib-QMJLUb/view?usp=sharing" target="_blank" class="btn-accion btn-video">
+                <i class="fas fa-play-circle"></i> VER VIDEO CRONOLOGICO + BACKSTAGE
+            </a>
+
+            <a href="https://photos.app.goo.gl/o1PeiMg8KvH3VGXb8" target="_blank" class="btn-accion btn-rosa">
+                <i class="fas fa-glass-cheers"></i> VER FOTOS DE LA FIESTA
+            </a>
+
+            <a href="https://photos.app.goo.gl/S11tWwn5KtiSa9u78" target="_blank" class="btn-accion btn-dorado">
+                <i class="fas fa-camera-retro"></i> VER FOTOS DEL BACKSTAGE
             </a>
         </div>
     </section>
 
-    <!-- Eventos próximos -->
     <section class="eventos">
         <div class="container">
             <h3>Momentos del Evento</h3>
-            <p class="eventos-subtitulo">YA ESTÁN DISPONIBLES LAS FOTOS Y VIDEOS DEL EVENTO</p>
-            
+            <p class="eventos-subtitulo">(ESTATE ATENTO QUE ACA SUBIREMOS LAS FOTOS DEL EVENTO)</p>
             <div class="grid-eventos">
-                <a href="https://photos.app.goo.gl/o1PeiMg8KvH3VGXb8" target="_blank" class="card-evento">
-                    <div class="icono-evento">
-                        <i class="fas fa-glass-cheers"></i>
-                    </div>
+                <div class="card-evento">
+                    <div class="icono-evento"><i class="fas fa-glass-cheers"></i></div>
                     <h4>La Fiesta</h4>
                     <p>Fotos del evento</p>
-                    <div class="badge-pequeño" style="background-color: #4CAF50; color: white;">
-                        <i class="fas fa-check-circle"></i> YA DISPONIBLE
-                    </div>
-                </a>
-                
-                <a href="https://drive.google.com/file/d/1IRfAADmr_Gv4T381_Zg3W4iib-QMJLUb/view?usp=sharing" 
-                   target="_blank" class="card-evento">
-                    <div class="icono-evento">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h4>Video del Evento</h4>
+                    <div class="badge-pequeño">PRÓXIMAMENTE</div>
+                </div>
+                <div class="card-evento">
+                    <div class="icono-evento"><i class="fas fa-video"></i></div>
+                    <h4>Videos</h4>
                     <p>Momentos en movimiento</p>
-                    <div class="badge-pequeño" style="background-color: #2196F3; color: white;">
-                        <i class="fas fa-video"></i> VER VIDEO
-                    </div>
-                    <div class="badge-pequeño" style="background-color: #FF9800; color: white; margin-top: 5px; font-size: 0.7rem;">
-                        <i class="fas fa-info-circle"></i> Requiere cuenta Google
-                    </div>
-                </a>
-            </div>
-            
-            <!-- Nota importante sobre el video -->
-            <div class="nota-video">
-                <p class="nota-titulo">
-                    <i class="fas fa-exclamation-triangle"></i> 
-                    <strong>Nota importante sobre el video:</strong>
-                </p>
-                <p class="nota-texto">
-                    Para ver el video correctamente, necesitas tener una cuenta de Google (Gmail) y estar logeado en Google Drive.
-                    Si tienes problemas para acceder, contáctanos por WhatsApp.
-                </p>
+                    <div class="badge-pequeño">PRÓXIMAMENTE</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Fotógrafos -->
     <section class="fotografos-info">
         <div class="container">
             <h3 class="fotografos-titulo">Nuestros Fotógrafos</h3>
-            
             <div class="fotografos-grid">
                 <div class="card-fotografo">
-                    <div class="foto-fotografo">
-                        <!-- Intentar cargar imagen local primero -->
-                        <img src="images/2.jpg" alt="Carlos Machuca - Fotógrafo" 
-                             onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-camera\" style=\"font-size: 2rem;\"></i>';">
-                    </div>
-                    
+                    <div class="foto-fotografo"><img src="images/2.jpg" alt="Carlos Machuca"></div>
                     <h4>Carlos Machuca</h4>
                     <p class="titulo">Fotógrafo Profesional</p>
-                    
                     <div class="descripcion">
                         <p>+200 quinceañeras desde 2018</p>
                         <p>Especialista en eventos de XV años</p>
                     </div>
                 </div>
-                
                 <div class="card-fotografo">
-                    <div class="foto-fotografo">
-                        <!-- Intentar cargar imagen local primero -->
-                        <img src="images/3.jpg" alt="Aída - Fotógrafa" 
-                             onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-camera-retro\" style=\"font-size: 2rem;\"></i>';">
-                    </div>
-                    
+                    <div class="foto-fotografo"><img src="images/3.jpg" alt="Aída"></div>
                     <h4>Aída</h4>
                     <p class="titulo">Fotógrafa Profesional</p>
-                    
                     <div class="descripcion">
                         <p>Especialista en retratos</p>
                         <p>Enfoque artístico y creativo</p>
@@ -739,26 +598,17 @@
         </div>
     </section>
 
-    <!-- CTA Contacto -->
     <section class="cta-contacto">
         <div class="container">
             <h4>¿Quieres tu sesión de XV años?</h4>
             <p>Contáctame para reservar tu fecha y crear recuerdos inolvidables</p>
-            
             <div class="redes-contacto">
-                <a href="https://wa.me/5491167137742?text=Hola%20Carlos,%20vi%20tu%20trabajo%20con%20Alma%20y%20me%20interesa%20saber%20más%20sobre%20tus%20servicios%20para%20XV%20años" 
-                   target="_blank" class="btn-contacto btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                
-                <a href="https://www.instagram.com/carlosmachucafotografia/" target="_blank" class="btn-contacto btn-instagram">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
+                <a href="https://wa.me/5491167137742?text=Hola%20Carlos,%20vi%20tu%20trabajo%20con%20Alma%20y%20me%20interesa%20saber%20más%20sobre%20tus%20servicios%20para%20XV%20años" target="_blank" class="btn-contacto btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.instagram.com/carlosmachucafotografia/" target="_blank" class="btn-contacto btn-instagram"><i class="fab fa-instagram"></i> Instagram</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="copyright">
@@ -767,7 +617,6 @@
         </div>
     </footer>
 
-    <!-- Modal Compartir -->
     <div class="modal" id="modalCompartir">
         <div class="modal-contenido">
             <div class="modal-cabecera">
@@ -777,132 +626,53 @@
             <div class="modal-cuerpo">
                 <p>Comparte la galería de Alma con familiares y amigos</p>
                 <div class="opciones-compartir">
-                    <button class="opcion-compartir" id="compartirWhatsApp">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </button>
-                    <button class="opcion-compartir" id="compartirFacebook">
-                        <i class="fab fa-facebook"></i> Facebook
-                    </button>
-                    <button class="opcion-compartir" id="copiarEnlace">
-                        <i class="fas fa-link"></i> Copiar enlace
-                    </button>
+                    <button class="opcion-compartir" id="compartirWhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                    <button class="opcion-compartir" id="compartirFacebook"><i class="fab fa-facebook"></i> Facebook</button>
+                    <button class="opcion-compartir" id="copiarEnlace"><i class="fas fa-link"></i> Copiar enlace</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Cuando el DOM esté cargado
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // Compartir funcionalidad
             const compartirBtn = document.getElementById('compartirBtn');
             const modalCompartir = document.getElementById('modalCompartir');
             const cerrarModal = document.querySelector('.cerrar-modal');
             
-            if (compartirBtn) {
-                compartirBtn.addEventListener('click', function() {
-                    modalCompartir.style.display = 'flex';
-                });
-            }
+            if (compartirBtn) compartirBtn.addEventListener('click', () => modalCompartir.style.display = 'flex');
+            if (cerrarModal) cerrarModal.addEventListener('click', () => modalCompartir.style.display = 'none');
+            window.addEventListener('click', (e) => { if (e.target === modalCompartir) modalCompartir.style.display = 'none'; });
             
-            if (cerrarModal) {
-                cerrarModal.addEventListener('click', function() {
-                    modalCompartir.style.display = 'none';
-                });
-            }
-            
-            // Cerrar modal haciendo clic fuera
-            window.addEventListener('click', function(event) {
-                if (event.target === modalCompartir) {
-                    modalCompartir.style.display = 'none';
-                }
+            document.getElementById('compartirWhatsApp').addEventListener('click', () => {
+                window.open(`https://wa.me/?text=${encodeURIComponent('Mira la galería de fotos de Alma ' + window.location.href)}`, '_blank');
             });
-            
-            // Funcionalidad de compartir
-            const compartirWhatsApp = document.getElementById('compartirWhatsApp');
-            const compartirFacebook = document.getElementById('compartirFacebook');
-            const copiarEnlace = document.getElementById('copiarEnlace');
-            
-            if (compartirWhatsApp) {
-                compartirWhatsApp.addEventListener('click', function() {
-                    const shareUrl = window.location.href;
-                    const shareText = 'Mira la galería de fotos de la quinceañera Alma';
-                    window.open(`https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`, '_blank');
-                    modalCompartir.style.display = 'none';
-                });
-            }
-            
-            if (compartirFacebook) {
-                compartirFacebook.addEventListener('click', function() {
-                    const shareUrl = window.location.href;
-                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
-                    modalCompartir.style.display = 'none';
-                });
-            }
-            
-            if (copiarEnlace) {
-                copiarEnlace.addEventListener('click', function() {
-                    const shareUrl = window.location.href;
-                    navigator.clipboard.writeText(shareUrl).then(() => {
-                        alert('Enlace copiado al portapapeles');
-                        modalCompartir.style.display = 'none';
-                    }).catch(err => {
-                        console.error('Error al copiar: ', err);
-                    });
-                });
-            }
-            
-            // Cargar imágenes en la galería
+            document.getElementById('compartirFacebook').addEventListener('click', () => {
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
+            });
+            document.getElementById('copiarEnlace').addEventListener('click', () => {
+                navigator.clipboard.writeText(window.location.href).then(() => alert('Enlace copiado'));
+            });
+
             cargarImagenesGaleria();
         });
         
-        // Cargar imágenes en la galería
         function cargarImagenesGaleria() {
             const gridGaleria = document.getElementById('gridGaleria');
-            
             if (!gridGaleria) return;
-            
-            // Número de imágenes en la carpeta
             const totalImagenes = 6;
-            
-            // Arreglo de URLs de imágenes de ejemplo (si las locales no funcionan)
-            const imagenesEjemplo = [
-                'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w-600&q=80',
-                'https://images.unsplash.com/photo-1519677100205-5dd5f1212a5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1547825407-d23c2f16a4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
-            ];
-            
-            for (let i = 1; i <= totalImagenes; i++) {
-                const itemGaleria = document.createElement('div');
-                itemGaleria.className = 'item-galeria';
-                
+            for (let i = 4; i <= totalImagenes + 3; i++) {
+                const item = document.createElement('div');
+                item.className = 'item-galeria';
                 const img = document.createElement('img');
-                
-                // Intentar cargar imagen local primero
                 img.src = `images/${i}.jpg`;
-                img.alt = `Alma fotografía ${i}`;
-                
-                // Si la imagen local falla, usar una de ejemplo
+                img.alt = `Alma fotografía ${i-3}`;
                 img.onerror = function() {
-                    // Usar imagen de ejemplo
-                    const indexEjemplo = (i - 1) % imagenesEjemplo.length;
-                    this.src = imagenesEjemplo[indexEjemplo];
-                    this.onerror = null; // Prevenir bucles infinitos
+                    this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjBGMEYwIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiNDQ0NDQ0MiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIwLjNlbSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSI+PGRpdj57eyBpLTMgfX08L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC90ZXh0Pgo8L3N2Zz4=';
                 };
-                
-                itemGaleria.appendChild(img);
-                gridGaleria.appendChild(itemGaleria);
-                
-                // Añadir evento para abrir la imagen en grande
-                itemGaleria.addEventListener('click', function() {
-                    if (img.src && !img.src.includes('data:')) {
-                        window.open(img.src, '_blank');
-                    }
-                });
+                item.appendChild(img);
+                item.addEventListener('click', () => { if (!img.src.includes('data:')) window.open(img.src, '_blank'); });
+                gridGaleria.appendChild(item);
             }
         }
     </script>
